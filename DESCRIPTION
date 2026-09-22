@@ -29,11 +29,11 @@ Suggests:
     binsegRcpp,
     covr
 Config/testthat/edition: 3
-Collate: 
+Collate:
     'costFuncR6.R'
+    'DynpR6.R'
     'PeltR6.R'
     'WindowR6.R'
     'binSegR6.R'
     'rupturesRcpp-package.R'
     'zzz.R'
-
