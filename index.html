@@ -58,65 +58,112 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="rupturesrcpp">rupturesRcpp<a class="anchor" aria-label="anchor" href="#rupturesrcpp"></a>
+<div class="page-header"><h1 id="welcome-to-rupturesrcpp">Welcome to rupturesRcpp<a class="anchor" aria-label="anchor" href="#welcome-to-rupturesrcpp"></a>
 </h1></div>
-<!-- badges: start -->
-
-<p>Offline change-point detection for multivariate time series in R.</p>
-<p><code>rupturesRcpp</code> finds the times at which the behaviour of a series changes: its mean, its variance, its autocorrelation, or its relationship with covariates. It brings the cost functions and search methods of the Python library <a href="https://centre-borelli.github.io/ruptures-docs/" class="external-link">ruptures</a> to R, with a C++ core and an R6 interface.</p>
-<p>Every detection combines a cost function, a segmentation method and a penalty. The code below finds the change in mean and variance in two simulated series.</p>
+<div class="home-badges">
+<p><a href="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://GitHub.com/edelweiss611428/rupturesRcpp/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a> <a href="https://edelweiss611428.r-universe.dev/rupturesRcpp" class="external-link"><img src="https://edelweiss611428.r-universe.dev/rupturesRcpp/badges/version" alt="rupturesRcpp status badge"></a> <a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://www.r-pkg.org/badges/version/rupturesRcpp" alt="CRAN Version"></a> <a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/rupturesRcpp" alt="CRAN Downloads"></a> <a href="https://app.codecov.io/gh/edelweiss611428/rupturesRcpp" class="external-link"><img src="https://codecov.io/gh/edelweiss611428/rupturesRcpp/branch/main/graph/badge.svg" alt="codecov"></a></p>
+</div>
+<p><code>rupturesRcpp</code> is an R package for offline change-point detection in multivariate time series. Given a whole series, it finds the times at which its behaviour changes: the mean, the variance, the autocorrelation, or the relationship with covariates. The algorithms run in C++, behind an object-oriented R6 interface.</p>
+<div class="section level2">
+<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
+</h2>
+<ul>
+<li>Cost functions and search methods implemented in C++ with Rcpp and RcppArmadillo.</li>
+<li>One interface for every method: create an object, <code>$fit()</code> the data, <code>$predict()</code> the change-points and <code>$plot()</code> the result.</li>
+<li>Change-points chosen by a penalty (<code>pen</code>) or by their number (<code>nBkps</code>), with elbow plots to help choose.</li>
+<li>The cost and parameter estimates of each segment (<code>$segments()</code>), or of any segment without running a detection (<code>costFactory</code>).</li>
+<li>Cost functions written in R, for changes the built-in costs do not cover.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="supported-methods">Supported methods<a class="anchor" aria-label="anchor" href="#supported-methods"></a>
+</h2>
+<table class="table">
+<colgroup>
+<col width="42%">
+<col width="57%">
+</colgroup>
+<thead><tr>
+<th>Cost function</th>
+<th>Detects changes in</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<code>"L1"</code>, <code>"L2"</code>
+</td>
+<td>the mean (<code>"L1"</code> is robust to outliers)</td>
+</tr>
+<tr>
+<td><code>"SIGMA"</code></td>
+<td>the mean and covariance</td>
+</tr>
+<tr>
+<td><code>"VAR"</code></td>
+<td>vector autoregressive dynamics</td>
+</tr>
+<tr>
+<td>
+<code>"LinearL2"</code>, <code>"LinearL1"</code>
+</td>
+<td>a linear regression on covariates (<code>"LinearL1"</code> is robust to outliers)</td>
+</tr>
+<tr>
+<td><code>"LinearSIGMA"</code></td>
+<td>a linear regression and its noise covariance</td>
+</tr>
+<tr>
+<td><code>"Custom"</code></td>
+<td>anything written as an R function</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="75%">
+</colgroup>
+<thead><tr>
+<th>Segmentation method</th>
+<th>Search</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>binSeg</code></td>
+<td>binary segmentation: greedy and fast</td>
+</tr>
+<tr>
+<td><code>Window</code></td>
+<td>sliding window: local gains, fast</td>
+</tr>
+<tr>
+<td><code>PELT</code></td>
+<td>optimal for a penalty, with pruning</td>
+</tr>
+<tr>
+<td><code>Dynp</code></td>
+<td>optimal for a number of change-points, by dynamic programming</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
+<h2 id="about-the-project">About the project<a class="anchor" aria-label="anchor" href="#about-the-project"></a>
+</h2>
+<p><code>rupturesRcpp</code> ports the Python library <a href="https://centre-borelli.github.io/ruptures-docs/" class="external-link">ruptures</a> to R. It was created during Google Summer of Code 2025 for The R Project for Statistical Computing by <a href="https://github.com/edelweiss611428" class="external-link">@edelweiss611428</a>, with mentors <a href="https://github.com/tdhock" class="external-link">@tdhock</a> and <a href="https://github.com/deepcharles" class="external-link">@deepcharles</a>. The project archive is on the <a href="https://github.com/edelweiss611428/rupturesRcpp/blob/gsoc-2025/README.md" class="external-link">gsoc-2025 branch</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://edelweiss611428.github.io/rupturesRcpp/">rupturesRcpp</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Development version, documented on this site</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rupturesRcpp"</span>,</span>
+<span>                 repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://edelweiss611428.r-universe.dev"</span>,</span>
+<span>                           <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">tsMat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>              <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">binSegObj</span> <span class="op">=</span> <span class="va"><a href="reference/binSeg.html">binSeg</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>costFunc <span class="op">=</span> <span class="va"><a href="reference/costFunc.html">costFunc</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"SIGMA"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">fit</span><span class="op">(</span><span class="va">tsMat</span><span class="op">)</span></span>
-<span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>pen <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 100 200</span></span>
-<span></span>
-<span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">plot</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="home-detection.png" width="768" alt="Two simulated series, each split into two shaded segments at the change-point t = 100 found by binary segmentation."></p>
-<p><a class="btn btn-primary" href="articles/getting-started.html">Get started</a></p>
-<div class="section level2">
-<h2 id="google-summer-of-code-2025">Google Summer of Code 2025<a class="anchor" aria-label="anchor" href="#google-summer-of-code-2025"></a>
-</h2>
-<p><code>rupturesRcpp</code> was created as part of the Google Summer of Code 2025 program (see <a href="https://github.com/edelweiss611428/rupturesRcpp/blob/gsoc-2025/README.md" class="external-link">edelweiss611428/rupturesRcpp at gsoc-2025</a> for the project archive).</p>
-<ul>
-<li>Project: rupturesRcpp</li>
-<li>Contributor: <a href="https://github.com/edelweiss611428" class="external-link">@edelweiss611428</a>
-</li>
-<li>Mentors: <a href="https://github.com/tdhock" class="external-link">@tdhock</a> and <a href="https://github.com/deepcharles" class="external-link">@deepcharles</a>
-</li>
-<li>Organisation: The R Project for Statistical Computing</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="future-development">Future development<a class="anchor" aria-label="anchor" href="#future-development"></a>
-</h2>
-<ul>
-<li>Improve the <code>"L1"</code> cost module, potentially allowing queries in <code>O(log(n))</code> time using data structures such as a persistent segment tree with <code>O(nlog(n))</code> precomputation.</li>
-<li>Clean and enhance the existing object-oriented interface for improved efficiency, robustness, and accessibility (see <a href="https://github.com/edelweiss611428/R6BinSeg/tree/main" class="external-link uri">https://github.com/edelweiss611428/R6BinSeg/tree/main</a> for an idea).</li>
-<li>Implement <code>$get_params()</code> for segmentation modules.</li>
-<li>Implement methods for model selection/diagnostics.</li>
-<li>Implement additional cost functions (e.g., <code>"Poisson"</code>).</li>
-<li>Implement other offline change-point detection classes (e.g., <code>BottomUp</code>).</li>
-<li>Improve <code>$plot()</code> method for models involving both dependent and independent variables.</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
-</h2>
-<p>We welcome all contributions, whether big or small. If you encounter a bug or have a feature request, please open an issue to let us know.</p>
-<p>Feel free to fork the repository and make your changes. For significant updates, it’s best to discuss them with us first. When your changes are ready, submit a pull request.</p>
-<p>Thanks for helping us improve this project!</p>
-</div>
-<div class="section level2">
-<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
-</h2>
-<p>This project is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
+<span><span class="co"># CRAN release (1.0.3)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rupturesRcpp"</span><span class="op">)</span></span></code></pre></div>
+<p><a href="articles/getting-started.html">Getting started</a> explains the difference between the two and runs a first detection.</p>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
@@ -163,17 +210,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://GitHub.com/edelweiss611428/rupturesRcpp/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></li>
-<li><a href="https://edelweiss611428.r-universe.dev/rupturesRcpp" class="external-link"><img src="https://edelweiss611428.r-universe.dev/rupturesRcpp/badges/version" alt="rupturesRcpp status badge"></a></li>
-<li><a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://www.r-pkg.org/badges/version/rupturesRcpp" alt="CRAN Version"></a></li>
-<li><a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/rupturesRcpp" alt="CRAN Downloads"></a></li>
-<li><a href="https://app.codecov.io/gh/edelweiss611428/rupturesRcpp" class="external-link"><img src="https://codecov.io/gh/edelweiss611428/rupturesRcpp/branch/main/graph/badge.svg" alt="codecov"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>

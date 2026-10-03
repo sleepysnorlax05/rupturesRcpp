@@ -136,8 +136,7 @@
 }
 
 /* Plots: shown at the size set in the code, scaled down only when the view is narrower */
-main img.r-plt,
-.template-home main img {
+main img.r-plt {
   max-width: 100%;
   height: auto;
 }
