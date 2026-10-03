@@ -101,11 +101,11 @@ takes one as a <code>costFunc</code> object.</p>
 <p>The following table shows the list of supported cost functions
 (pre-implemented ones are <code>PELT</code>-compatible; see <a href="segmentation-methods.html">Segmentation methods</a>). Here,
 <code>n</code> is the segment length, and the time complexity is that of
-one segment query. For <code>"LinearL1"</code>, <code>q</code> is the
-number of regression coefficients, <code>p</code> the number of features
-(columns of <code>tsMat</code>) and <code>k</code> (at most
-<code>maxIter</code>) the number of IRLS iterations: every query refits
-the regression on the segment’s rows, so it grows linearly in
+one segment query. For <code>"LinearL1"</code>, <code>p</code> is the
+number of features (columns of <code>tsMat</code>), <code>J</code> the
+number of regression coefficients (covariates plus the intercept) and
+<code>maxIter</code> the maximum number of IRLS iterations: every query
+refits the regression on the segment’s rows, so it grows linearly in
 <code>n</code>.</p>
 <table class="table">
 <colgroup>
@@ -161,7 +161,7 @@ outliers.</td>
 <code>maxIter</code>
 </td>
 <td><code>multi</code></td>
-<td><code>O(pk(nq² + q³))</code></td>
+<td><code>O(p·n·J²·maxIter)</code></td>
 </tr>
 <tr class="odd">
 <td><code>"LinearL2"</code></td>
