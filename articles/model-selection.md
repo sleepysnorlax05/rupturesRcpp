@@ -1,14 +1,14 @@
-# 6 Model selection
-
-``` r
-library(rupturesRcpp)
-```
+# Model selection
 
 This chapter shows how to choose the number of change-points without
 tuning `pen` directly: by reading the cost trajectory (the elbow
 method), or by asking `Dynp` for the exact optimum for each count.
 
-## Elbow-method model selection: `$getHistory()`, `$plotElbow()`, and `$predict(nBkps = ...)`
+``` r
+library(rupturesRcpp)
+```
+
+## Elbow method
 
 `binSeg` and `Window` both build up their segmentation by adding one
 change-point at a time: `binSeg` by recursively splitting the segment
@@ -72,7 +72,7 @@ change-points as it found local maxima for; if you ask for more,
 `$predict()` returns what’s available and reports the shortfall via a
 message rather than erroring.
 
-## Exact optimal segmentation via `Dynp`
+## Exact segmentation with Dynp
 
 The caveat above (`binSeg`/`Window` returning their own best answer for
 a given `nBkps`, not necessarily the *globally* optimal one) is exactly
@@ -151,8 +151,3 @@ solution is independently exact and need not be nested inside the
 solution for `k+1`, so “the one breakpoint added at this step” is not
 generally well-defined. Use `$predict(nBkps = k)` to get the full
 breakpoint set for a given `k`.
-
-[Previous5 Segmentation
-methods](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-methods.md)
-[Next7 Segment costs and
-parameters](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md)

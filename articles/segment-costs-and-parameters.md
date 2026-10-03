@@ -1,15 +1,15 @@
-# 7 Segment costs and parameters
-
-``` r
-library(rupturesRcpp)
-```
+# Segment costs and parameters
 
 This chapter shows how to get the cost and parameter estimates of each
 segment, either from a fitted segmentation (`$segments()`) or for any
 segment you choose, without running a detection algorithm
 (`costFactory`).
 
-## Per-segment costs and parameters via `$segments()`
+``` r
+library(rupturesRcpp)
+```
+
+## Costs and parameters of each segment
 
 After `$predict()`, `$segments()` returns a list with one element per
 segment (available on `binSeg`, `Window`, `PELT` and `Dynp`; the example
@@ -62,7 +62,7 @@ Re-fitting (including through an active binding such as `$minSize` or
 `$costFunc`) clears the segmentation saved by the last `$predict()`, so
 `$predict()` must be run again before calling `$segments()`.
 
-## Cost evaluation without detection: `costFactory`
+## Costs without a detection algorithm
 
 Sometimes you don’t need a detection algorithm at all, only fast cost
 evaluation and parameter estimation for segments whose boundaries you
@@ -130,8 +130,3 @@ segs = cf$segments(c(100, 200))
 sapply(segs, `[[`, "Cost")
 #> [1] -22.47755 312.27581
 ```
-
-[Previous6 Model
-selection](https://edelweiss611428.github.io/rupturesRcpp/articles/model-selection.md)
-[Next8 Examples and case
-studies](https://edelweiss611428.github.io/rupturesRcpp/articles/examples.md)

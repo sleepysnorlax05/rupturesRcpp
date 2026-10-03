@@ -1,13 +1,13 @@
-# 8 Examples and case studies
-
-``` r
-library(rupturesRcpp)
-```
+# Examples and case studies
 
 This chapter collects longer examples. The two simulated examples below
 use `binSeg`: a change in mean and variance (`"SIGMA"` cost), and a
 change in autoregressive dynamics (`"VAR"` cost). The second example
 also shows how to change an existing object through its active bindings.
+
+``` r
+library(rupturesRcpp)
+```
 
 ## Simulated examples
 
@@ -74,7 +74,7 @@ binSegObj$plot(d = 1:2,
 change-point, t =
 100.](examples_files/figure-html/unnamed-chunk-6-1.png)
 
-### 2-regime VAR example: Modifying a `binSeg` object through its active bindings
+### 2-regime VAR example
 
 You can also modify a `binSeg` object’s fields through its active
 bindings. To demonstrate this, we consider a piecewise vector
@@ -134,6 +134,3 @@ to an approximate solve.
 ## Case studies
 
 Case studies on real data are to be added.
-
-[Previous7 Segment costs and
-parameters](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md)

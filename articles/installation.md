@@ -1,4 +1,4 @@
-# 3 Installation
+# Installation
 
 `rupturesRcpp` has a development version and a CRAN release. This guide
 documents the development version.
@@ -48,8 +48,3 @@ packageVersion("rupturesRcpp")
 
 The packages `rupturesRcpp` depends on (Rcpp, R6, ggplot2 and patchwork)
 are installed with it.
-
-[Previous2
-Overview](https://edelweiss611428.github.io/rupturesRcpp/articles/overview.md)
-[Next4 Cost
-functions](https://edelweiss611428.github.io/rupturesRcpp/articles/cost-functions.md)

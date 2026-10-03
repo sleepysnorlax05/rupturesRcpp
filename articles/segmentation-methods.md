@@ -1,14 +1,14 @@
-# 5 Segmentation methods
-
-``` r
-library(rupturesRcpp)
-```
+# Segmentation methods
 
 This chapter describes the four segmentation classes, the methods they
 share, and how refitting works. Each class takes a `costFunc` object and
 a time series and returns change-points; they differ in the search they
 use, from greedy (`binSeg`, `Window`) to exact (`PELT` for a penalty,
 `Dynp` for a number of change-points).
+
+``` r
+library(rupturesRcpp)
+```
 
 ## Classes
 
@@ -80,8 +80,3 @@ detectionObj$minSize = 2L #Before fitting
 detectionObj$fit(a_time_series_matrix) #Fitted
 detectionObj$minSize = 1L #After fitting - automatically trigger `$fit()`
 ```
-
-[Previous4 Cost
-functions](https://edelweiss611428.github.io/rupturesRcpp/articles/cost-functions.md)
-[Next6 Model
-selection](https://edelweiss611428.github.io/rupturesRcpp/articles/model-selection.md)

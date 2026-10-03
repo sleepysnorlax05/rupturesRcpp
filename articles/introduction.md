@@ -1,4 +1,4 @@
-# 1 Introduction
+# Introduction
 
 `rupturesRcpp` detects change-points in multivariate time series. A
 change-point is a time at which the behaviour of a series changes: its
@@ -48,7 +48,8 @@ puts the three together on simulated data.
 
 The cost functions and search methods follow the Python library
 [ruptures](https://centre-borelli.github.io/ruptures-docs/), whose
-methods are reviewed by Truong, Oudre and Vayatis (2020). `rupturesRcpp`
+methods are reviewed by [Truong, Oudre and Vayatis
+(2020)](https://doi.org/10.1016/j.sigpro.2019.107299). `rupturesRcpp`
 implements them in C++ with Rcpp and RcppArmadillo, wraps them in R6
 classes, and also accepts cost functions written in R (the `"Custom"`
 cost). The package was created during Google Summer of Code 2025 for the
@@ -56,15 +57,7 @@ R Project for Statistical Computing.
 
 ## How to read this guide
 
-Chapters 1 to 3 get you running. Chapters 4 to 7 form the user guide and
-can be read in any order. Chapter 8 collects longer examples.
-
-## References
-
-Truong, C., Oudre, L. and Vayatis, N. (2020). Selective review of
-offline change point detection methods. *Signal Processing*, 167,
-107299. <https://doi.org/10.1016/j.sigpro.2019.107299>
-
-[PreviousHome](https://edelweiss611428.github.io/rupturesRcpp/index.md)
-[Next2
-Overview](https://edelweiss611428.github.io/rupturesRcpp/articles/overview.md)
+The sidebar lists every chapter in reading order. The getting-started
+chapters (this one, Installation and Overview) get you running. The user
+guide chapters can then be read in any order, and Examples collects
+longer worked examples.

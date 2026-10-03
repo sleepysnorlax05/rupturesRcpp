@@ -1,11 +1,11 @@
-# 2 Overview
+# Overview
+
+This chapter runs one complete detection. Each step links to the chapter
+that covers it in depth.
 
 ``` r
 library(rupturesRcpp)
 ```
-
-This chapter runs one complete detection. Each step links to the chapter
-that covers it in depth.
 
 ## Data
 
@@ -48,8 +48,3 @@ binSegObj$plot(d = 1:2)
 ![Two simulated series split into two shaded segments at the detected
 change-point, t =
 100.](overview_files/figure-html/unnamed-chunk-4-1.png)
-
-[Previous1
-Introduction](https://edelweiss611428.github.io/rupturesRcpp/articles/introduction.md)
-[Next3
-Installation](https://edelweiss611428.github.io/rupturesRcpp/articles/installation.md)
