@@ -102,10 +102,11 @@ takes one as a <code>costFunc</code> object.</p>
 (pre-implemented ones are <code>PELT</code>-compatible; see <a href="segmentation-methods.html">Segmentation methods</a>). Here,
 <code>n</code> is the segment length, and the time complexity is that of
 one segment query. For <code>"LinearL1"</code>, <code>q</code> is the
-number of regression coefficients, <code>p</code> the number of series
-and <code>k</code> (at most <code>maxIter</code>) the number of IRLS
-iterations: every query refits the regression on the segment’s rows, so
-it grows linearly in <code>n</code>.</p>
+number of regression coefficients, <code>p</code> the number of features
+(columns of <code>tsMat</code>) and <code>k</code> (at most
+<code>maxIter</code>) the number of IRLS iterations: every query refits
+the regression on the segment’s rows, so it grows linearly in
+<code>n</code>.</p>
 <table class="table">
 <colgroup>
 <col width="9%">

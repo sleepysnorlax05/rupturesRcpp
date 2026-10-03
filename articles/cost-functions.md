@@ -26,9 +26,9 @@ The following table shows the list of supported cost functions
 methods](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-methods.md)).
 Here, `n` is the segment length, and the time complexity is that of one
 segment query. For `"LinearL1"`, `q` is the number of regression
-coefficients, `p` the number of series and `k` (at most `maxIter`) the
-number of IRLS iterations: every query refits the regression on the
-segment’s rows, so it grows linearly in `n`.
+coefficients, `p` the number of features (columns of `tsMat`) and `k`
+(at most `maxIter`) the number of IRLS iterations: every query refits
+the regression on the segment’s rows, so it grows linearly in `n`.
 
 | **Cost function** | **Description** | **Parameters/active bindings** | **Dimension** | **Time complexity** |
 |----|----|----|----|----|

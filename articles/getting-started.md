@@ -71,7 +71,7 @@ packageVersion("rupturesRcpp")
 ```
 
 Both series below change in mean and variance at $`t = 100`$. `tsMat`
-has one row per time point and one column per series.
+has one row per time point and one column per feature.
 
 ``` r
 set.seed(1)
