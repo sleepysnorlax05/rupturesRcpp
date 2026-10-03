@@ -1,7 +1,7 @@
-# Examples and case studies
+# Case studies
 
-This chapter collects longer examples. The two simulated examples below
-use `binSeg`: a change in mean and variance (`"SIGMA"` cost), and a
+This page collects longer worked examples. The two below use simulated
+data and `binSeg`: a change in mean and variance (`"SIGMA"` cost), and a
 change in autoregressive dynamics (`"VAR"` cost). The second example
 also shows how to change an existing object through its active bindings.
 
@@ -9,7 +9,7 @@ also shows how to change an existing object through its active bindings.
 library(rupturesRcpp)
 ```
 
-## Simulated examples
+## Simulated data
 
 ### 2-regime SIGMA example via binary segmentation
 
@@ -72,7 +72,7 @@ binSegObj$plot(d = 1:2,
 
 ![Two simulated series split into two shaded segments at the detected
 change-point, t =
-100.](examples_files/figure-html/unnamed-chunk-6-1.png)
+100.](case-studies_files/figure-html/unnamed-chunk-6-1.png)
 
 ### 2-regime VAR example
 
@@ -125,12 +125,12 @@ binSegObj$plot(d = 1L,
 
 ![Simulated autoregressive series with the change-points found by binSeg
 with the VAR cost marked by dashed
-lines.](examples_files/figure-html/unnamed-chunk-10-1.png)
+lines.](case-studies_files/figure-html/unnamed-chunk-10-1.png)
 
 The warning is expected: with `minSize = 1L`, some candidate segments
 have too few observations to fit the VAR model, so their cost falls back
 to an approximate solve.
 
-## Case studies
+## Real data
 
 Case studies on real data are to be added.

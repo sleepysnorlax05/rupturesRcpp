@@ -1,15 +1,21 @@
-// Guide chapters: mark the current chapter in the sidebar and add previous/next
-// links at the end of the page, in the order the sidebar lists them.
+// Documentation pages: mark the current page in the sidebar and in the navbar, and add
+// previous/next links at the end of the page, in the order the sidebar lists them.
 document.addEventListener("DOMContentLoaded", function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll(".guide-nav a"));
+  var chapters = Array.prototype.slice.call(document.querySelectorAll(".guide-nav a.guide-chapter"));
   var main = document.getElementById("main");
-  if (!links.length || !main) return;
+  if (!chapters.length || !main) return;
+
+  var navbarLink = document.querySelector('.navbar a[href$="documentation.html"]');
+  if (navbarLink) {
+    navbarLink.classList.add("active");
+    navbarLink.setAttribute("aria-current", "page");
+  }
 
   var page = function (href) { return href.split("/").pop().replace(/\.html$/, ""); };
   var here = page(window.location.pathname);
-  var current = links.findIndex(function (a) { return page(a.getAttribute("href")) === here; });
+  var current = chapters.findIndex(function (a) { return page(a.getAttribute("href")) === here; });
   if (current < 0) return;
-  links[current].setAttribute("aria-current", "page");
+  chapters[current].setAttribute("aria-current", "page");
 
   var link = function (target, cls, label) {
     var a = document.createElement("a");
@@ -25,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var nav = document.createElement("nav");
   nav.className = "chapter-nav";
-  nav.setAttribute("aria-label", "Chapters");
-  if (current > 0) nav.appendChild(link(links[current - 1], "chapter-nav-prev", "Previous"));
-  if (current < links.length - 1) nav.appendChild(link(links[current + 1], "chapter-nav-next", "Next"));
+  nav.setAttribute("aria-label", "Documentation pages");
+  if (current > 0) nav.appendChild(link(chapters[current - 1], "chapter-nav-prev", "Previous"));
+  if (current < chapters.length - 1) nav.appendChild(link(chapters[current + 1], "chapter-nav-next", "Next"));
   main.appendChild(nav);
 });

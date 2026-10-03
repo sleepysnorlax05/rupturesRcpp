@@ -1,8 +1,8 @@
 /* Guide layout ============================================================= */
 
-/* Room for the chapter sidebar while plots keep the width set in the code. */
+/* Room for the Documentation sidebar while plots keep the width set in the code. */
 @media (min-width: 1200px) {
-  .container.template-article {
+  .container.template-article:has(.guide-nav) {
     max-width: 1380px;
   }
 }
@@ -10,6 +10,11 @@
 .guide-nav h2 {
   margin-top: 1.5rem;
   font-size: 1.25rem;
+}
+
+.guide-nav h2 a {
+  margin-left: -0.5rem;
+  display: inline-block;
 }
 
 .guide-nav-part {
@@ -106,4 +111,120 @@ main img.r-plt,
 .template-home main img {
   max-width: 100%;
   height: auto;
+}
+
+/* Package map on the Documentation page ======================================= */
+
+.pkg-map {
+  margin: 1.5rem 0 2rem;
+}
+
+.pkg-map-root {
+  width: max-content;
+  margin: 0 auto;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}
+
+.pkg-map-branches {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 1.5rem 0 0;
+  list-style: none;
+}
+
+/* Connectors: root down to a bar, bar down to each branch. */
+.pkg-map-branches::before,
+.pkg-map-branches::after,
+.pkg-map-branches > li::before {
+  content: "";
+  position: absolute;
+  border-color: var(--bs-border-color);
+  border-style: solid;
+  border-width: 0;
+}
+
+.pkg-map-branches::before {
+  top: 0;
+  left: 50%;
+  height: 0.75rem;
+  border-left-width: 1px;
+}
+
+.pkg-map-branches::after {
+  top: 0.75rem;
+  left: calc((100% - 2rem) / 6);
+  right: calc((100% - 2rem) / 6);
+  border-top-width: 1px;
+}
+
+.pkg-map-branches > li {
+  position: relative;
+}
+
+.pkg-map-branches > li::before {
+  top: -0.75rem;
+  left: 50%;
+  height: 0.75rem;
+  border-left-width: 1px;
+}
+
+.pkg-map-node {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.pkg-map-node:hover,
+.pkg-map-node:focus-visible {
+  color: var(--bs-link-hover-color);
+  background-color: var(--bs-tertiary-bg);
+}
+
+.pkg-map-what {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--bs-secondary-color);
+  text-align: center;
+}
+
+.pkg-map-leaves {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.pkg-map-leaves li {
+  padding: 0.375rem 0;
+  border-top: 1px solid var(--bs-border-color-translucent);
+}
+
+.pkg-map figcaption {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--bs-secondary-color);
+}
+
+/* Narrow screens: one branch per row, without connectors. */
+@media (max-width: 767.98px) {
+  .pkg-map-branches {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .pkg-map-branches::before,
+  .pkg-map-branches::after,
+  .pkg-map-branches > li::before {
+    display: none;
+  }
 }

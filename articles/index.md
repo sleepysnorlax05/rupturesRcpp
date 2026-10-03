@@ -2,12 +2,12 @@
 
 ### Getting started
 
-- [Introduction](https://edelweiss611428.github.io/rupturesRcpp/articles/introduction.md):
-- [Installation](https://edelweiss611428.github.io/rupturesRcpp/articles/installation.md):
-- [Overview](https://edelweiss611428.github.io/rupturesRcpp/articles/overview.md):
+- [Getting
+  started](https://edelweiss611428.github.io/rupturesRcpp/articles/getting-started.md):
 
-### User guide
+### Documentation
 
+- [Documentation](https://edelweiss611428.github.io/rupturesRcpp/articles/documentation.md):
 - [Cost
   functions](https://edelweiss611428.github.io/rupturesRcpp/articles/cost-functions.md):
 - [Segmentation
@@ -17,7 +17,7 @@
 - [Segment costs and
   parameters](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md):
 
-### Examples
+### Case studies
 
-- [Examples and case
-  studies](https://edelweiss611428.github.io/rupturesRcpp/articles/examples.md):
+- [Case
+  studies](https://edelweiss611428.github.io/rupturesRcpp/articles/case-studies.md):

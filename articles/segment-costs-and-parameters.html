@@ -30,14 +30,11 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/introduction.html">Guide</a></li>
-<li class="nav-item"><a class="nav-link" href="../articles/examples.html">Examples</a></li>
-<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/getting-started.html">Getting started</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/documentation.html">Documentation</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/case-studies.html">Case studies</a></li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
-</form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/edelweiss611428/rupturesRcpp/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
@@ -49,27 +46,20 @@
 
 
 
-<!-- Article layout for the guide: chapter sidebar, content, table of contents.
-     Keep the chapter list in the same order as `articles:` in _pkgdown.yml;
-     pkgdown/extra.js marks the current chapter and adds the previous/next links. -->
+<!-- Article layout. Pages with `guide: true` in their YAML are Documentation pages: they get
+     the chapter sidebar, listed in the same order as the Documentation section in _pkgdown.yml.
+     pkgdown/extra.js marks the current page and adds the previous/next links. -->
 <div class="row">
-  <nav class="guide-nav col-lg-2 order-2 order-lg-1" aria-label="Guide"><h2>Guide</h2>
-    <p class="guide-nav-part">Getting started</p>
+  <nav class="guide-nav col-lg-2 order-2 order-lg-1" aria-label="Documentation"><h2><a class="guide-chapter" href="documentation.html">Documentation</a></h2>
     <ul>
-<li><a href="introduction.html">Introduction</a></li>
-      <li><a href="installation.html">Installation</a></li>
-      <li><a href="overview.html">Overview</a></li>
+<li><a class="guide-chapter" href="cost-functions.html">Cost functions</a></li>
+      <li><a class="guide-chapter" href="segmentation-methods.html">Segmentation methods</a></li>
+      <li><a class="guide-chapter" href="model-selection.html">Model selection</a></li>
+      <li><a class="guide-chapter" href="segment-costs-and-parameters.html">Segment costs and parameters</a></li>
     </ul>
-<p class="guide-nav-part">User guide</p>
+<p class="guide-nav-part">Reference</p>
     <ul>
-<li><a href="cost-functions.html">Cost functions</a></li>
-      <li><a href="segmentation-methods.html">Segmentation methods</a></li>
-      <li><a href="model-selection.html">Model selection</a></li>
-      <li><a href="segment-costs-and-parameters.html">Segment costs and parameters</a></li>
-    </ul>
-<p class="guide-nav-part">Examples</p>
-    <ul>
-<li><a href="examples.html">Examples and case studies</a></li>
+<li><a href="../reference/index.html">Function reference</a></li>
     </ul></nav><main id="main" class="col-lg-7 order-1 order-lg-2"><div class="page-header">
       <h1>Segment costs and parameters</h1>
       <!-- Kept from pkgdown's own template. Pandoc drops these when unused, but pkgdown's
