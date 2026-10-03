@@ -171,11 +171,7 @@ instead. The package follows the same split.</p>
 <p class="pkg-map-what">What kind of change to look for</p>
 <ul class="pkg-map-leaves">
 <li>
-<a href="../reference/costFunc.html"><code>costFunc</code></a>: <code>"L1"</code>, <code>"L2"</code>, <code>"SIGMA"</code>, <code>"VAR"</code>
-</li>
-<li>Regression costs: <code>"LinearL2"</code>, <code>"LinearSIGMA"</code>, <code>"LinearL1"</code>
-</li>
-<li>Your own cost in R: <code>"Custom"</code>
+<a href="../reference/costFunc.html"><code>costFunc$new()</code></a>: <code>"L1"</code>, <code>"L2"</code>, <code>"SIGMA"</code>, <code>"VAR"</code>, <code>"LinearL2"</code>, <code>"LinearSIGMA"</code>, <code>"LinearL1"</code>, <code>"Custom"</code>
 </li>
 <li>
 <a href="segment-costs-and-parameters.html"><code>costFactory</code></a>: costs without a detection</li>
@@ -193,8 +189,6 @@ instead. The package follows the same split.</p>
 <a href="../reference/PELT.html"><code>PELT</code></a>: exact for a penalty</li>
 <li>
 <a href="../reference/Dynp.html"><code>Dynp</code></a>: exact for a number of change-points</li>
-<li>
-<a href="segment-costs-and-parameters.html"><code>$segments()</code></a>: each segment's cost and parameters</li>
 </ul>
 </li>
 <li>
@@ -209,8 +203,7 @@ instead. The package follows the same split.</p>
 <code>$getHistory()</code> and <code>$plotElbow()</code>: the elbow method</li>
 </ul>
 </li>
-</ul>
-<figcaption>The three parts of the package. Each box links to its chapter.</figcaption></figure>
+</ul></figure>
 </div>
   </main><aside class="col-lg-3 order-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

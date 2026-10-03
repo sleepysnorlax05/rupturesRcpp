@@ -236,12 +236,6 @@ main img.r-plt {
   border-top: 1px solid var(--bs-border-color-translucent);
 }
 
-.pkg-map figcaption {
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: var(--bs-secondary-color);
-}
-
 /* Narrow screens: one branch per row, without connectors. */
 @media (max-width: 767.98px) {
   .pkg-map-branches {

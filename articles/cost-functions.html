@@ -100,7 +100,12 @@ takes one as a <code>costFunc</code> object.</p>
 <span><span class="co">#&gt; [1] "L2"</span></span></code></pre></div>
 <p>The following table shows the list of supported cost functions
 (pre-implemented ones are <code>PELT</code>-compatible; see <a href="segmentation-methods.html">Segmentation methods</a>). Here,
-<code>n</code> is segment length.</p>
+<code>n</code> is the segment length, and the time complexity is that of
+one segment query. For <code>"LinearL1"</code>, <code>q</code> is the
+number of regression coefficients, <code>p</code> the number of series
+and <code>k</code> (at most <code>maxIter</code>) the number of IRLS
+iterations: every query refits the regression on the segment’s rows, so
+it grows linearly in <code>n</code>.</p>
 <table class="table">
 <colgroup>
 <col width="9%">
@@ -155,7 +160,7 @@ outliers.</td>
 <code>maxIter</code>
 </td>
 <td><code>multi</code></td>
-<td>not <code>O(1)</code>!</td>
+<td><code>O(pk(nq² + q³))</code></td>
 </tr>
 <tr class="odd">
 <td><code>"LinearL2"</code></td>

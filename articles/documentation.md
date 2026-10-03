@@ -42,10 +42,9 @@ instead. The package follows the same split.
 
   What kind of change to look for
 
-  - [`costFunc`](https://edelweiss611428.github.io/rupturesRcpp/reference/costFunc.md):
-    `"L1"`, `"L2"`, `"SIGMA"`, `"VAR"`
-  - Regression costs: `"LinearL2"`, `"LinearSIGMA"`, `"LinearL1"`
-  - Your own cost in R: `"Custom"`
+  - [`costFunc$new()`](https://edelweiss611428.github.io/rupturesRcpp/reference/costFunc.md):
+    `"L1"`, `"L2"`, `"SIGMA"`, `"VAR"`, `"LinearL2"`, `"LinearSIGMA"`,
+    `"LinearL1"`, `"Custom"`
   - [`costFactory`](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md):
     costs without a detection
 
@@ -62,8 +61,6 @@ instead. The package follows the same split.
     exact for a penalty
   - [`Dynp`](https://edelweiss611428.github.io/rupturesRcpp/reference/Dynp.md):
     exact for a number of change-points
-  - [`$segments()`](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md):
-    each segment's cost and parameters
 
 - [Model
   selection](https://edelweiss611428.github.io/rupturesRcpp/articles/model-selection.md)
@@ -73,5 +70,3 @@ instead. The package follows the same split.
   - `$predict(pen = ...)`: a penalty per change-point
   - `$predict(nBkps = ...)`: a fixed number
   - `$getHistory()` and `$plotElbow()`: the elbow method
-
-The three parts of the package. Each box links to its chapter.
