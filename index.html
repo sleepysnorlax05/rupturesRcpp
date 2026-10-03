@@ -33,7 +33,19 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="articles/getting-started.html">Getting started</a></li>
-<li class="nav-item"><a class="nav-link" href="articles/documentation.html">Documentation</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-documentation" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Documentation</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-documentation">
+<li><a class="dropdown-item" href="articles/documentation.html">Overview</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="articles/cost-functions.html">Cost functions</a></li>
+    <li><a class="dropdown-item" href="articles/segmentation-methods.html">Segmentation methods</a></li>
+    <li><a class="dropdown-item" href="articles/model-selection.html">Model selection</a></li>
+    <li><a class="dropdown-item" href="articles/segment-costs-and-parameters.html">Segment costs and parameters</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="reference/index.html">Function reference</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="articles/case-studies.html">Case studies</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -48,6 +60,8 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="rupturesrcpp">rupturesRcpp<a class="anchor" aria-label="anchor" href="#rupturesrcpp"></a>
 </h1></div>
+<!-- badges: start -->
+
 <p>Offline change-point detection for multivariate time series in R.</p>
 <p><code>rupturesRcpp</code> finds the times at which the behaviour of a series changes: its mean, its variance, its autocorrelation, or its relationship with covariates. It brings the cost functions and search methods of the Python library <a href="https://centre-borelli.github.io/ruptures-docs/" class="external-link">ruptures</a> to R, with a C++ core and an R6 interface.</p>
 <p>Every detection combines a cost function, a segmentation method and a penalty. The code below finds the change in mean and variance in two simulated series.</p>
@@ -66,6 +80,53 @@
 <span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">plot</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="home-detection.png" width="768" alt="Two simulated series, each split into two shaded segments at the change-point t = 100 found by binary segmentation."></p>
 <p><a class="btn btn-primary" href="articles/getting-started.html">Get started</a></p>
+<div class="section level2">
+<h2 id="google-summer-of-code-2025">Google Summer of Code 2025<a class="anchor" aria-label="anchor" href="#google-summer-of-code-2025"></a>
+</h2>
+<p><code>rupturesRcpp</code> was created as part of the Google Summer of Code 2025 program (see <a href="https://github.com/edelweiss611428/rupturesRcpp/blob/gsoc-2025/README.md" class="external-link">edelweiss611428/rupturesRcpp at gsoc-2025</a> for the project archive).</p>
+<ul>
+<li>Project: rupturesRcpp</li>
+<li>Contributor: <a href="https://github.com/edelweiss611428" class="external-link">@edelweiss611428</a>
+</li>
+<li>Mentors: <a href="https://github.com/tdhock" class="external-link">@tdhock</a> and <a href="https://github.com/deepcharles" class="external-link">@deepcharles</a>
+</li>
+<li>Organisation: The R Project for Statistical Computing</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="future-development">Future development<a class="anchor" aria-label="anchor" href="#future-development"></a>
+</h2>
+<ul>
+<li>Improve the <code>"L1"</code> cost module, potentially allowing queries in <code>O(log(n))</code> time using data structures such as a persistent segment tree with <code>O(nlog(n))</code> precomputation.</li>
+<li>Clean and enhance the existing object-oriented interface for improved efficiency, robustness, and accessibility (see <a href="https://github.com/edelweiss611428/R6BinSeg/tree/main" class="external-link uri">https://github.com/edelweiss611428/R6BinSeg/tree/main</a> for an idea).</li>
+<li>Implement <code>$get_params()</code> for segmentation modules.</li>
+<li>Implement methods for model selection/diagnostics.</li>
+<li>Implement additional cost functions (e.g., <code>"Poisson"</code>).</li>
+<li>Implement other offline change-point detection classes (e.g., <code>BottomUp</code>).</li>
+<li>Improve <code>$plot()</code> method for models involving both dependent and independent variables.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
+</h2>
+<p>We welcome all contributions, whether big or small. If you encounter a bug or have a feature request, please open an issue to let us know.</p>
+<p>Feel free to fork the repository and make your changes. For significant updates, it’s best to discuss them with us first. When your changes are ready, submit a pull request.</p>
+<p>Thanks for helping us improve this project!</p>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
+<p>This project is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
+</div>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
+<ul>
+<li>Hocking, T. D. (2024). <em>Finite Sample Complexity Analysis of Binary Segmentation</em>. arXiv preprint arXiv:2410.08654.</li>
+<li>Truong, C., Oudre, L., &amp; Vayatis, N. (2020). <em>Selective review of offline change point detection methods</em>. Signal Processing, 167, 107299.</li>
+<li>Killick, R., Fearnhead, P., &amp; Eckley, I. A. (2012). <em>Optimal detection of change points with a linear computational cost</em>. Journal of the American Statistical Association, 107(500), 1590–1598.</li>
+</ul>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
@@ -98,18 +159,28 @@
 <li>Minh Long Nguyen <br><small class="roles"> Author, maintainer </small>   </li>
 <li>Toby Hocking <br><small class="roles"> Author </small>   </li>
 <li>Charles Truong <br><small class="roles"> Author </small>   </li>
-<li><a href="authors.html">More about authors...</a></li>
+<li>Huy Nhat Minh Nguyen <br><small class="roles"> Contributor </small>   </li>
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edelweiss611428/rupturesRcpp/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://GitHub.com/edelweiss611428/rupturesRcpp/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></li>
+<li><a href="https://edelweiss611428.r-universe.dev/rupturesRcpp" class="external-link"><img src="https://edelweiss611428.r-universe.dev/rupturesRcpp/badges/version" alt="rupturesRcpp status badge"></a></li>
+<li><a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://www.r-pkg.org/badges/version/rupturesRcpp" alt="CRAN Version"></a></li>
+<li><a href="https://CRAN.R-project.org/package=rupturesRcpp" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/rupturesRcpp" alt="CRAN Downloads"></a></li>
+<li><a href="https://app.codecov.io/gh/edelweiss611428/rupturesRcpp" class="external-link"><img src="https://codecov.io/gh/edelweiss611428/rupturesRcpp/branch/main/graph/badge.svg" alt="codecov"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Minh Long Nguyen, Toby Hocking, Charles Truong.</p>
+  <p>Developed by Minh Long Nguyen, Toby Hocking, Charles Truong, Huy Nhat Minh Nguyen.</p>
 </div>
 
 <div class="pkgdown-footer-right">

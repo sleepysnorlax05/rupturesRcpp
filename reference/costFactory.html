@@ -16,7 +16,17 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/getting-started.html">Getting started</a></li>
-<li class="nav-item"><a class="nav-link" href="../articles/documentation.html">Documentation</a></li>
+<li class="active nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-documentation" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Documentation</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-documentation"><li><a class="dropdown-item" href="../articles/documentation.html">Overview</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/cost-functions.html">Cost functions</a></li>
+    <li><a class="dropdown-item" href="../articles/segmentation-methods.html">Segmentation methods</a></li>
+    <li><a class="dropdown-item" href="../articles/model-selection.html">Model selection</a></li>
+    <li><a class="dropdown-item" href="../articles/segment-costs-and-parameters.html">Segment costs and parameters</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../reference/index.html">Function reference</a></li>
+  </ul></li>
 <li class="nav-item"><a class="nav-link" href="../articles/case-studies.html">Case studies</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><a class="external-link nav-link" href="https://github.com/edelweiss611428/rupturesRcpp/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
@@ -304,7 +314,7 @@ segmentation classes. Each element is a list with <code>Start</code> (exclusive,
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Minh Long Nguyen, Toby Hocking, Charles Truong.</p>
+  <p>Developed by Minh Long Nguyen, Toby Hocking, Charles Truong, Huy Nhat Minh Nguyen.</p>
 </div>
 
 <div class="pkgdown-footer-right">

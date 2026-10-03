@@ -1,11 +1,25 @@
-// Documentation pages: mark the current page in the sidebar and in the navbar, and add
-// previous/next links at the end of the page, in the order the sidebar lists them.
 document.addEventListener("DOMContentLoaded", function () {
+  // Navbar: the Documentation label links to the Documentation page; its menu opens on
+  // hover or keyboard focus instead (see extra.css), so swap pkgdown's toggle button for a link.
+  var docsToggle = document.getElementById("dropdown-documentation");
+  var docsFirst = docsToggle && docsToggle.parentElement.querySelector(".dropdown-menu a");
+  if (docsFirst) {
+    var docsLink = document.createElement("a");
+    docsLink.id = docsToggle.id;
+    docsLink.className = docsToggle.className;
+    docsLink.href = docsFirst.getAttribute("href");
+    docsLink.setAttribute("aria-haspopup", "true");
+    docsLink.textContent = docsToggle.textContent;
+    docsToggle.replaceWith(docsLink);
+  }
+
+  // Documentation pages: mark the current page in the sidebar and in the navbar, and add
+  // previous/next links at the end of the page, in the order the sidebar lists them.
   var chapters = Array.prototype.slice.call(document.querySelectorAll(".guide-nav a.guide-chapter"));
   var main = document.getElementById("main");
   if (!chapters.length || !main) return;
 
-  var navbarLink = document.querySelector('.navbar a[href$="documentation.html"]');
+  var navbarLink = document.getElementById("dropdown-documentation");
   if (navbarLink) {
     navbarLink.classList.add("active");
     navbarLink.setAttribute("aria-current", "page");
