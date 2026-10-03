@@ -1,10 +1,10 @@
-# Cost functions
+# 4 Cost functions
 
 ``` r
 library(rupturesRcpp)
 ```
 
-This page lists the cost functions built into `rupturesRcpp`, their
+This chapter lists the cost functions built into `rupturesRcpp`, their
 options, and how to supply your own cost as an R function. A cost
 function measures how badly a single model fits a segment; every
 segmentation class and `costFactory` takes one as a `costFunc` object.
@@ -23,7 +23,7 @@ costFuncObj$pass() #output attributes corresponding to the specified cost functi
 
 The following table shows the list of supported cost functions
 (pre-implemented ones are `PELT`-compatible; see [Segmentation
-classes](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-classes.md)).
+methods](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-methods.md)).
 Here, `n` is segment length.
 
 | **Cost function** | **Description** | **Parameters/active bindings** | **Dimension** | **Time complexity** |
@@ -226,3 +226,8 @@ customObj2$describe(printConfig = TRUE)
 ```
 
 `"Custom"` is supported by `PELT`, `binSeg`, `Window` and `Dynp` alike.
+
+[Previous3
+Installation](https://edelweiss611428.github.io/rupturesRcpp/articles/installation.md)
+[Next5 Segmentation
+methods](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-methods.md)

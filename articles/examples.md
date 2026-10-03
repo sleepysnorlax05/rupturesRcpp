@@ -1,15 +1,17 @@
-# Get started
+# 8 Examples and case studies
 
 ``` r
 library(rupturesRcpp)
 ```
 
-This page walks through two simulated examples with `binSeg`: a change
-in mean and variance (`"SIGMA"` cost), and a change in autoregressive
-dynamics (`"VAR"` cost). The second example also shows how to change an
-existing object through its active bindings.
+This chapter collects longer examples. The two simulated examples below
+use `binSeg`: a change in mean and variance (`"SIGMA"` cost), and a
+change in autoregressive dynamics (`"VAR"` cost). The second example
+also shows how to change an existing object through its active bindings.
 
-## 2-regime SIGMA example via binary segmentation
+## Simulated examples
+
+### 2-regime SIGMA example via binary segmentation
 
 To demonstrate the package usage, we first consider a simple 2d time
 series with two piecewise Gaussian regimes and varying variance.
@@ -70,9 +72,9 @@ binSegObj$plot(d = 1:2,
 
 ![Two simulated series split into two shaded segments at the detected
 change-point, t =
-100.](rupturesRcpp_files/figure-html/unnamed-chunk-6-1.png)
+100.](examples_files/figure-html/unnamed-chunk-6-1.png)
 
-## 2-regime VAR example: Modifying a `binSeg` object through its active bindings
+### 2-regime VAR example: Modifying a `binSeg` object through its active bindings
 
 You can also modify a `binSeg` object’s fields through its active
 bindings. To demonstrate this, we consider a piecewise vector
@@ -123,8 +125,15 @@ binSegObj$plot(d = 1L,
 
 ![Simulated autoregressive series with the change-points found by binSeg
 with the VAR cost marked by dashed
-lines.](rupturesRcpp_files/figure-html/unnamed-chunk-10-1.png)
+lines.](examples_files/figure-html/unnamed-chunk-10-1.png)
 
 The warning is expected: with `minSize = 1L`, some candidate segments
 have too few observations to fit the VAR model, so their cost falls back
 to an approximate solve.
+
+## Case studies
+
+Case studies on real data are to be added.
+
+[Previous7 Segment costs and
+parameters](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md)

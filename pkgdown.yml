@@ -3,11 +3,14 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   articles/cost-functions: cost-functions.html
+  articles/examples: examples.html
+  articles/installation: installation.html
+  articles/introduction: introduction.html
   articles/model-selection: model-selection.html
-  articles/rupturesRcpp: rupturesRcpp.html
+  articles/overview: overview.html
   articles/segment-costs-and-parameters: segment-costs-and-parameters.html
-  articles/segmentation-classes: segmentation-classes.html
-last_built: 2026-09-30T13:12Z
+  articles/segmentation-methods: segmentation-methods.html
+last_built: 2026-10-03T02:53Z
 urls:
   reference: https://edelweiss611428.github.io/rupturesRcpp/reference
   article: https://edelweiss611428.github.io/rupturesRcpp/articles

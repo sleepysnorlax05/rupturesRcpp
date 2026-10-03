@@ -1,12 +1,12 @@
-# Model selection
+# 6 Model selection
 
 ``` r
 library(rupturesRcpp)
 ```
 
-This page shows how to choose the number of change-points without tuning
-`pen` directly: by reading the cost trajectory (the elbow method), or by
-asking `Dynp` for the exact optimum for each count.
+This chapter shows how to choose the number of change-points without
+tuning `pen` directly: by reading the cost trajectory (the elbow
+method), or by asking `Dynp` for the exact optimum for each count.
 
 ## Elbow-method model selection: `$getHistory()`, `$plotElbow()`, and `$predict(nBkps = ...)`
 
@@ -17,8 +17,8 @@ gain. `$getHistory()` exposes that trajectory directly, so you can
 inspect it, or choose the number of change-points via the “elbow
 method”, instead of only tuning `pen`.
 
-The examples below use the piecewise VAR series from [Get
-started](https://edelweiss611428.github.io/rupturesRcpp/articles/rupturesRcpp.md):
+The examples below use the piecewise VAR series from [Examples and case
+studies](https://edelweiss611428.github.io/rupturesRcpp/articles/examples.md):
 
 ``` r
 set.seed(1)
@@ -151,3 +151,8 @@ solution is independently exact and need not be nested inside the
 solution for `k+1`, so “the one breakpoint added at this step” is not
 generally well-defined. Use `$predict(nBkps = k)` to get the full
 breakpoint set for a given `k`.
+
+[Previous5 Segmentation
+methods](https://edelweiss611428.github.io/rupturesRcpp/articles/segmentation-methods.md)
+[Next7 Segment costs and
+parameters](https://edelweiss611428.github.io/rupturesRcpp/articles/segment-costs-and-parameters.md)

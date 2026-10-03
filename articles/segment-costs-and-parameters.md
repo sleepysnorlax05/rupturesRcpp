@@ -1,10 +1,10 @@
-# Segment costs and parameters
+# 7 Segment costs and parameters
 
 ``` r
 library(rupturesRcpp)
 ```
 
-This page shows how to get the cost and parameter estimates of each
+This chapter shows how to get the cost and parameter estimates of each
 segment, either from a fitted segmentation (`$segments()`) or for any
 segment you choose, without running a detection algorithm
 (`costFactory`).
@@ -130,3 +130,8 @@ segs = cf$segments(c(100, 200))
 sapply(segs, `[[`, "Cost")
 #> [1] -22.47755 312.27581
 ```
+
+[Previous6 Model
+selection](https://edelweiss611428.github.io/rupturesRcpp/articles/model-selection.md)
+[Next8 Examples and case
+studies](https://edelweiss611428.github.io/rupturesRcpp/articles/examples.md)
