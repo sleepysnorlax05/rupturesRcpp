@@ -33,6 +33,7 @@ GitHub, with binaries for Windows, macOS and Linux, so no compiler is
 needed.
 
 ``` r
+
 install.packages("rupturesRcpp",
                  repos = c("https://edelweiss611428.r-universe.dev",
                            "https://cloud.r-project.org"))
@@ -43,11 +44,13 @@ command line tools on macOS (`xcode-select --install`), or a C++
 compiler on Linux (for example `r-base-dev` on Debian and Ubuntu).
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("edelweiss611428/rupturesRcpp")
 ```
 
 ``` r
+
 install.packages("rupturesRcpp")
 ```
 
@@ -65,6 +68,7 @@ rest of what this site uses:
 Load the package and check that the version is 2.0.0 or later:
 
 ``` r
+
 library(rupturesRcpp)
 packageVersion("rupturesRcpp")
 #> [1] '2.0.0'
@@ -74,6 +78,7 @@ Both series below change in mean and variance at t = 100. `tsMat` has
 one row per time point and one column per feature.
 
 ``` r
+
 set.seed(1)
 tsMat = cbind(c(rnorm(100, 0), rnorm(100, 5, 5)),
               c(rnorm(100, 0), rnorm(100, 5, 5)))
@@ -84,6 +89,7 @@ models both, suits this data. Binary segmentation (`binSeg`) is a fast
 search method.
 
 ``` r
+
 binSegObj = binSeg$new(costFunc = costFunc$new("SIGMA"))
 binSegObj$fit(tsMat)
 binSegObj$predict(pen = 100)
@@ -95,6 +101,7 @@ always the number of observations. Here it finds the one change-point at
 t = 100. The penalty `pen` sets how many change-points are kept.
 
 ``` r
+
 binSegObj$plot(d = 1:2)
 ```
 

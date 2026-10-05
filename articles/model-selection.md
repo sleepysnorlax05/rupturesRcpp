@@ -5,6 +5,7 @@ tuning `pen` directly: by reading the cost trajectory (the elbow
 method), or by asking `Dynp` for the exact optimum for each count.
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
@@ -17,11 +18,11 @@ gain. `$getHistory()` exposes that trajectory directly, so you can
 inspect it, or choose the number of change-points via the “elbow
 method”, instead of only tuning `pen`.
 
-The examples below use the piecewise VAR series from [Change in
-autoregressive
-dynamics](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-var.md):
+The examples below use the piecewise VAR series from [Case
+studies](https://edelweiss611428.github.io/rupturesRcpp/articles/case-studies.md):
 
 ``` r
+
 set.seed(1)
 tsMat = matrix(c(filter(rnorm(100), filter = 0.9, method = "recursive"),
                  filter(rnorm(100), filter = -0.9, method = "recursive")))
@@ -49,6 +50,7 @@ change-points); look for where the marginal decrease in cost flattens
 out to pick `k`.
 
 ``` r
+
 binSegObj$plotElbow(maxK = 10)
 ```
 
@@ -60,6 +62,7 @@ Once a `k` is chosen, `$predict()` accepts it directly via `nBkps`,
 which takes precedence over `pen` when both are supplied:
 
 ``` r
+
 binSegObj$predict(nBkps = 1)
 #> [1]  99 200
 ```
@@ -85,6 +88,7 @@ number of `(minSize, jump)`-admissible positions, versus `binSeg`’s
 near-`O(n log n)` greedy search or `PELT`’s pruned search for a penalty.
 
 ``` r
+
 set.seed(1121)
 signals = as.matrix(c(rnorm(100, 0, 1), rnorm(100, 5, 1)))
 
@@ -98,6 +102,7 @@ DynpObj$fit(signals)
 capped at 20 by default.
 
 ``` r
+
 DynpObj$describe(printConfig = TRUE)
 #> Exact Dynamic Programming (Dynp) 
 #> minSize          : 1L
@@ -114,16 +119,19 @@ DynpObj$describe(printConfig = TRUE)
 `binSeg`/`Window`/`PELT`, either via `nBkps` or via a penalty:
 
 ``` r
+
 DynpObj$predict(nBkps = 1)
 #> [1] 100 200
 ```
 
 ``` r
+
 DynpObj$predict(pen = 100) # same split, reached via a penalty instead
 #> [1] 100 200
 ```
 
 ``` r
+
 DynpObj$plot(main = "method: Dynp; costFunc: L2; nBkps: 1")
 ```
 
@@ -137,6 +145,7 @@ extra search is needed the way `binSeg`/`Window` would need to keep
 growing their own nested sequence:
 
 ``` r
+
 head(DynpObj$getHistory())
 #>   k      cost
 #> 1 0 1511.6991

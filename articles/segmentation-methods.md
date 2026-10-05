@@ -7,6 +7,7 @@ use, from greedy (`binSeg`, `Window`) to exact (`PELT` for a penalty,
 `Dynp` for a number of change-points).
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
@@ -32,6 +33,7 @@ force-fitted using only an intercept term (i.e., a column of ones).
 A `PELT` object, for example, can be initialised as follows:
 
 ``` r
+
 detectionObj = PELT$new(minSize = 1L, jump = 1L, costFunc = costFunc$new("L2"))
 ```
 
@@ -76,6 +78,7 @@ consistency, if the object has already been fitted, modifying any active
 bindings will automatically trigger the re-fitting process.
 
 ``` r
+
 detectionObj$minSize = 2L #Before fitting
 detectionObj$fit(a_time_series_matrix) #Fitted
 detectionObj$minSize = 1L #After fitting - automatically trigger `$fit()`

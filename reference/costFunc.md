@@ -292,6 +292,7 @@ The objects of this class are cloneable with this method.
 ## Examples
 
 ``` r
+
 ## L2 costFunc (default)
 costFuncObj = costFunc$new()
 costFuncObj$pass()

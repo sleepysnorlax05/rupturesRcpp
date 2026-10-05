@@ -6,6 +6,7 @@ segment you choose, without running a detection algorithm
 (`costFactory`).
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
@@ -20,6 +21,7 @@ convention as `$eval(a, b)`. `Cost` equals `$eval(Start, End)`, and
 (see below).
 
 ``` r
+
 set.seed(1)
 tsMat = cbind(c(rnorm(100, 0), rnorm(100, 5, 5)))
 
@@ -30,6 +32,7 @@ PELTObj$predict(pen = 50)
 ```
 
 ``` r
+
 segs = PELTObj$segments()
 segs[[2]]
 #> $Start
@@ -54,6 +57,7 @@ For `PELT`, the segment costs add up to the optimal penalised cost minus
 `pen` times the number of change-points.
 
 ``` r
+
 sapply(segs, `[[`, "Cost")
 #> [1] -22.47755 312.27581
 ```
@@ -73,6 +77,7 @@ change-points, or just querying a segment’s fitted parameters).
 `$get_params()` and `$segments()`, with no segmentation logic.
 
 ``` r
+
 set.seed(1)
 tsMat = cbind(c(rnorm(100, 0), rnorm(100, 5, 5)))
 
@@ -83,6 +88,7 @@ cf$eval(0, 100)
 ```
 
 ``` r
+
 cf$get_params(0, 100)
 #> $mean
 #> [1] 0.1088874
@@ -93,16 +99,19 @@ reassigning it after `$fit()` automatically re-fits the underlying
 module against the same data.
 
 ``` r
+
 cf$costFunc = costFunc$new("SIGMA")
 #> `costFunc` has been updated. Re-fitting the model.
 ```
 
 ``` r
+
 cf$eval(0, 100)
 #> [1] -22.47755
 ```
 
 ``` r
+
 cf$get_params(0, 100)
 #> $mean
 #> [1] 0.1088874
@@ -126,6 +135,7 @@ segmentation classes’ `$segments()` (see above). `endPts` must end at
 `n`, so the output of any `$predict()` can be passed as is:
 
 ``` r
+
 segs = cf$segments(c(100, 200))
 sapply(segs, `[[`, "Cost")
 #> [1] -22.47755 312.27581

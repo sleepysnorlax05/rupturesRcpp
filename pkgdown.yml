@@ -1,18 +1,15 @@
-pandoc: 3.7.0.2
-pkgdown: 2.2.0
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   articles/case-studies: case-studies.html
-  articles/case-study-custom: case-study-custom.html
-  articles/case-study-sigma: case-study-sigma.html
-  articles/case-study-var: case-study-var.html
   articles/cost-functions: cost-functions.html
   articles/documentation: documentation.html
   articles/getting-started: getting-started.html
   articles/model-selection: model-selection.html
   articles/segment-costs-and-parameters: segment-costs-and-parameters.html
   articles/segmentation-methods: segmentation-methods.html
-last_built: 2026-10-05T21:40Z
+last_built: 2026-10-05T21:43Z
 urls:
   reference: https://edelweiss611428.github.io/rupturesRcpp/reference
   article: https://edelweiss611428.github.io/rupturesRcpp/articles

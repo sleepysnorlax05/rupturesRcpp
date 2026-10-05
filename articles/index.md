@@ -21,9 +21,3 @@
 
 - [Case
   studies](https://edelweiss611428.github.io/rupturesRcpp/articles/case-studies.md):
-- [Change in mean and
-  variance](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-sigma.md):
-- [Change in autoregressive
-  dynamics](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-var.md):
-- [Custom cost
-  functions](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-custom.md):

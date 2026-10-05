@@ -525,6 +525,7 @@ The objects of this class are cloneable with this method.
 ## Examples
 
 ``` r
+
 ## L2 example
 set.seed(1121)
 signals = as.matrix(c(rnorm(100,0,1),
