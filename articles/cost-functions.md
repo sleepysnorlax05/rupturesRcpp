@@ -141,6 +141,8 @@ A `costFunc` object is passed to a segmentation class or to
   variance](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-sigma.md)
   (`"SIGMA"`), [Change in autoregressive
   dynamics](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-var.md)
-  (`"VAR"`) and [Custom cost
+  (`"VAR"`), [Tuning the
+  penalty](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-pen.md)
+  (`"L2"`) and [Custom cost
   functions](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-custom.md)
   (`"Custom"`).

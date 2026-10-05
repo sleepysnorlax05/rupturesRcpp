@@ -50,6 +50,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/case-study-sigma.html">Change in mean and variance</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-var.html">Change in autoregressive dynamics</a></li>
+    <li><a class="dropdown-item" href="../articles/case-study-pen.html">Tuning the penalty</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-custom.html">Custom cost functions</a></li>
   </ul>
 </li>
@@ -163,6 +164,11 @@ using only an intercept term (i.e., a column of ones).</p>
 follows:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">detectionObj</span> <span class="op">=</span> <span class="va"><a href="../reference/PELT.html">PELT</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>minSize <span class="op">=</span> <span class="fl">1L</span>, jump <span class="op">=</span> <span class="fl">1L</span>, costFunc <span class="op">=</span> <span class="va"><a href="../reference/costFunc.html">costFunc</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"L2"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>The <a href="case-studies.html">case studies</a> run these classes
+from data to change-points: <code>binSeg</code> in <a href="case-study-sigma.html">Change in mean and variance</a> and <a href="case-study-var.html">Change in autoregressive dynamics</a>, and
+<code>PELT</code> in <a href="case-study-pen.html">Tuning the
+penalty</a> and <a href="case-study-custom.html">Custom cost
+functions</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a>

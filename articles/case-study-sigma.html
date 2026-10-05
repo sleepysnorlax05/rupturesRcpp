@@ -50,6 +50,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/case-study-sigma.html">Change in mean and variance</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-var.html">Change in autoregressive dynamics</a></li>
+    <li><a class="dropdown-item" href="../articles/case-study-pen.html">Tuning the penalty</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-custom.html">Custom cost functions</a></li>
   </ul>
 </li>
@@ -118,7 +119,8 @@ can use <code>$describe()</code>.</p>
 <code>pen</code>, which should be properly tuned. This returns a sorted
 integer vector of end-points, including the number of observations by
 design.</p>
-<p>Here, we set <code>pen = 100</code>.</p>
+<p>Here, we set <code>pen = 100</code> by hand. See <a href="case-study-pen.html">Tuning the penalty</a> for how
+<code>pen</code> could be tuned.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>pen <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 100 200</span></span></code></pre></div>
@@ -130,6 +132,19 @@ use the <code>$plot()</code> method without specifying
 <code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">plot</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,</span>
 <span>               main <span class="op">=</span> <span class="st">"method: binSeg; costFunc: SIGMA; pen: 100"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="case-study-sigma_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="Two simulated series split into two shaded segments at the detected change-point, t = 100." width="768"></p>
+<p>Instead of setting <code>pen</code>, we can choose the number of
+change-points with the elbow method (see <a href="model-selection.html#elbow-method">Model selection</a>).
+<code>$plotElbow()</code> plots the cost against the number of
+change-points.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">plotElbow</span><span class="op">(</span>maxK <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<p><img src="case-study-sigma_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="Elbow plot of total cost against the number of change-points, dropping sharply at one change-point and then falling only slowly." width="768"></p>
+<p>The cost drops sharply at one change-point and then falls only
+slowly, so we take <code>nBkps = 1</code>. This gives the same
+change-point as <code>pen = 100</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>nBkps <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 100 200</span></span></code></pre></div>
   </main>
 </div>
 

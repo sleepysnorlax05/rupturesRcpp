@@ -50,6 +50,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/case-study-sigma.html">Change in mean and variance</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-var.html">Change in autoregressive dynamics</a></li>
+    <li><a class="dropdown-item" href="../articles/case-study-pen.html">Tuning the penalty</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-custom.html">Custom cost functions</a></li>
   </ul>
 </li>
@@ -116,8 +117,9 @@ the object has been fitted.</p>
 <span><span class="co">#&gt; fitted       : TRUE</span></span>
 <span><span class="co">#&gt; n            : 200L</span></span>
 <span><span class="co">#&gt; p            : 1L</span></span></code></pre></div>
-<p>We can then perform binary segmentation with <code>pen = 25</code>
-and plot the segmentation results.</p>
+<p>We can then perform binary segmentation with <code>pen = 25</code>,
+set by hand, and plot the segmentation results. See <a href="case-study-pen.html">Tuning the penalty</a> for how
+<code>pen</code> could be tuned.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>pen <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  99 200</span></span>
@@ -127,6 +129,19 @@ and plot the segmentation results.</p>
 <p>The warning is expected: with <code>minSize = 1L</code>, some
 candidate segments have too few observations to fit the VAR model, so
 their cost falls back to an approximate solve.</p>
+<p>Instead of setting <code>pen</code>, we can choose the number of
+change-points with the elbow method (see <a href="model-selection.html#elbow-method">Model selection</a>).
+<code>$plotElbow()</code> plots the cost against the number of
+change-points.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">plotElbow</span><span class="op">(</span>maxK <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+<p><img src="case-study-var_files/figure-html/unnamed-chunk-7-1.png" class="r-plt" alt="Elbow plot of total cost against the number of change-points, dropping sharply at one change-point and then levelling off." width="768"></p>
+<p>The cost drops sharply at one change-point and then levels off, so we
+take <code>nBkps = 1</code>. This gives the same change-point as
+<code>pen = 25</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">binSegObj</span><span class="op">$</span><span class="fu">predict</span><span class="op">(</span>nBkps <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  99 200</span></span></code></pre></div>
   </main>
 </div>
 

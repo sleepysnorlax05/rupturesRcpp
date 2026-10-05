@@ -2,7 +2,10 @@
 
 This chapter shows how to choose the number of change-points without
 tuning `pen` directly: by reading the cost trajectory (the elbow
-method), or by asking `Dynp` for the exact optimum for each count.
+method), or by asking `Dynp` for the exact optimum for each count. To
+tune `pen` itself instead, for example with `PELT`, which has no elbow
+plot, see the case study [Tuning the
+penalty](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-pen.md).
 
 ``` r
 

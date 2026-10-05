@@ -53,8 +53,10 @@ binSegObj$describe(printConfig = TRUE)
 #> p            : 1L
 ```
 
-We can then perform binary segmentation with `pen = 25` and plot the
-segmentation results.
+We can then perform binary segmentation with `pen = 25`, set by hand,
+and plot the segmentation results. See [Tuning the
+penalty](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-pen.md)
+for how `pen` could be tuned.
 
 ``` r
 
@@ -71,3 +73,26 @@ lines.](case-study-var_files/figure-html/unnamed-chunk-6-1.png)
 The warning is expected: with `minSize = 1L`, some candidate segments
 have too few observations to fit the VAR model, so their cost falls back
 to an approximate solve.
+
+Instead of setting `pen`, we can choose the number of change-points with
+the elbow method (see [Model
+selection](https://edelweiss611428.github.io/rupturesRcpp/articles/model-selection.html#elbow-method)).
+`$plotElbow()` plots the cost against the number of change-points.
+
+``` r
+
+binSegObj$plotElbow(maxK = 10)
+```
+
+![Elbow plot of total cost against the number of change-points, dropping
+sharply at one change-point and then levelling
+off.](case-study-var_files/figure-html/unnamed-chunk-7-1.png)
+
+The cost drops sharply at one change-point and then levels off, so we
+take `nBkps = 1`. This gives the same change-point as `pen = 25`.
+
+``` r
+
+binSegObj$predict(nBkps = 1)
+#> [1]  99 200
+```

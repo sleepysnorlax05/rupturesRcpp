@@ -50,6 +50,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/case-study-sigma.html">Change in mean and variance</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-var.html">Change in autoregressive dynamics</a></li>
+    <li><a class="dropdown-item" href="../articles/case-study-pen.html">Tuning the penalty</a></li>
     <li><a class="dropdown-item" href="../articles/case-study-custom.html">Custom cost functions</a></li>
   </ul>
 </li>
@@ -101,17 +102,24 @@ change-points. Pick the one closest to your problem.</p>
 <td><code>"SIGMA"</code></td>
 <td><code>binSeg</code></td>
 <td>
-<code>$describe()</code> and <code>$plot()</code>
-</td>
+<code>$describe()</code>, <code>$plot()</code> and the elbow
+method</td>
 </tr>
 <tr class="even">
 <td><a href="case-study-var.html">Change in autoregressive
 dynamics</a></td>
 <td><code>"VAR"</code></td>
 <td><code>binSeg</code></td>
-<td>Changing an object through its active bindings</td>
+<td>Changing an object through its active bindings, and the elbow
+method</td>
 </tr>
 <tr class="odd">
+<td><a href="case-study-pen.html">Tuning the penalty</a></td>
+<td><code>"L2"</code></td>
+<td><code>PELT</code></td>
+<td>Choosing <code>pen</code> from a grid of values</td>
+</tr>
+<tr class="even">
 <td><a href="case-study-custom.html">Custom cost functions</a></td>
 <td><code>"Custom"</code></td>
 <td>
