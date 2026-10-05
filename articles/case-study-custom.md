@@ -7,6 +7,7 @@ It checks one against a built-in cost, uses data that were never passed
 to `$fit()`, and shows the risk that comes with that.
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
@@ -16,6 +17,7 @@ As a sanity check, re-implementing `"L2"` as a `"Custom"` cost gives
 identical numbers:
 
 ``` r
+
 myL2eval = function(segment, a, b){
   segment = as.matrix(segment)
   cm = colMeans(segment)
@@ -40,6 +42,7 @@ customCF$pass()
 ```
 
 ``` r
+
 set.seed(1)
 tsMat = cbind(c(rnorm(100,0), rnorm(100,5,5)),
               c(rnorm(100,0), rnorm(100,5,5))) # the series from the mean and variance case study
@@ -53,6 +56,7 @@ customObj$eval(0, 150)
 which matches
 
 ``` r
+
 L2Obj = PELT$new(costFunc = costFunc$new("L2"))
 L2Obj$fit(tsMat)
 L2Obj$eval(0, 150)
@@ -70,6 +74,7 @@ is captured purely through lexical scope (it is never passed to
 candidate segment:
 
 ``` r
+
 set.seed(1)
 tsMat2 = cbind(c(rnorm(100, 0), rnorm(100, 4)))
 externalSeries = as.matrix(rnorm(200)) # captured by closure, never passed to `$fit()`
@@ -90,6 +95,7 @@ This matches the built-in `"LinearL2"` cost told about `externalSeries`
 directly, via `covariates`:
 
 ``` r
+
 linObj = PELT$new(minSize = 2L, jump = 1L, costFunc = costFunc$new("LinearL2"))
 linObj$fit(tsMat2, externalSeries)
 linObj$predict(pen = 15)
@@ -100,6 +106,7 @@ linObj$predict(pen = 15)
 than printing the closure itself:
 
 ``` r
+
 customObj2$describe(printConfig = TRUE)
 #> Pruned Exact Linear Time (PELT) 
 #> minSize      : 2L
@@ -124,6 +131,7 @@ For example, a custom Poisson cost can silently use externally captured
 data that do not match the data passed to `$fit()`:
 
 ``` r
+
 set.seed(1)
 counts = as.matrix(c(rpois(250, 5), rpois(250, 0)))
 counts2 = as.matrix(rpois(500, 5))
@@ -150,6 +158,7 @@ detected segmentation can be inconsistent with the data supplied to
 `$fit()`.
 
 ``` r
+
 binSegObj$plot()
 ```
 

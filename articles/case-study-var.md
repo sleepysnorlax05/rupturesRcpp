@@ -6,10 +6,12 @@ through its active bindings. The series is piecewise vector
 autoregressive with constant noise variance.
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
 ``` r
+
 set.seed(1)
 tsMat = matrix(c(filter(rnorm(100), filter = 0.9, method = "recursive"),
                  filter(rnorm(100), filter = -0.9, method = "recursive")))
@@ -18,6 +20,7 @@ tsMat = matrix(c(filter(rnorm(100), filter = 0.9, method = "recursive"),
 Suppose a `binSeg` object has already been fitted with the `"L2"` cost:
 
 ``` r
+
 binSegObj = binSeg$new(minSize = 1L, jump = 1L, costFunc = costFunc$new("L2"))
 binSegObj$fit(tsMat)
 ```
@@ -26,6 +29,7 @@ Here, the most suitable cost function is `"VAR"`. We will modify the
 current `binSegObj` as follows:
 
 ``` r
+
 VARObj = costFunc$new("VAR")
 binSegObj$costFunc = VARObj
 #> `costFunc` has been updated. Re-fitting the model.
@@ -37,6 +41,7 @@ Modifying `costFunc` (or any other binding, such as `tsMat`)
 automatically triggers `self$fit()` once the object has been fitted.
 
 ``` r
+
 binSegObj$describe(printConfig = TRUE)
 #> Binary Segmentation (binSeg) 
 #> minSize      : 1L
@@ -52,6 +57,7 @@ We can then perform binary segmentation with `pen = 25` and plot the
 segmentation results.
 
 ``` r
+
 binSegObj$predict(pen = 25)
 #> [1]  99 200
 binSegObj$plot(d = 1L,

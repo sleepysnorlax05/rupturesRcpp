@@ -18,8 +18,9 @@ gain. `$getHistory()` exposes that trajectory directly, so you can
 inspect it, or choose the number of change-points via the “elbow
 method”, instead of only tuning `pen`.
 
-The examples below use the piecewise VAR series from [Case
-studies](https://edelweiss611428.github.io/rupturesRcpp/articles/case-studies.md):
+The examples below use the piecewise VAR series from [Change in
+autoregressive
+dynamics](https://edelweiss611428.github.io/rupturesRcpp/articles/case-study-var.md):
 
 ``` r
 

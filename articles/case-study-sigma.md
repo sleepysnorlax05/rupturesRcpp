@@ -5,6 +5,7 @@ two-dimensional series, with the `"SIGMA"` cost and binary segmentation
 (`binSeg`).
 
 ``` r
+
 library(rupturesRcpp)
 ```
 
@@ -12,6 +13,7 @@ To demonstrate the package usage, we first consider a simple 2d time
 series with two piecewise Gaussian regimes and varying variance.
 
 ``` r
+
 set.seed(1)
 tsMat = cbind(c(rnorm(100,0), rnorm(100,5,5)),
               c(rnorm(100,0), rnorm(100,5,5)))
@@ -23,6 +25,7 @@ interfaces are similar, it is sufficient to demonstrate the usage of
 `binSeg` only.
 
 ``` r
+
 SIGMAObj = costFunc$new("SIGMA", addSmallDiag = TRUE, epsilon = 1e-6)
 binSegObj = binSeg$new(minSize = 1L, jump = 1L, costFunc = SIGMAObj)
 binSegObj$fit(tsMat)
@@ -32,6 +35,7 @@ Once fitted, `$predict()` and `$eval()` can be used. To view the
 configurations of the `binSeg` object, we can use `$describe()`.
 
 ``` r
+
 binSegObj$describe(printConfig = TRUE)
 #> Binary Segmentation (binSeg) 
 #> minSize      : 1L
@@ -52,6 +56,7 @@ number of observations by design.
 Here, we set `pen = 100`.
 
 ``` r
+
 binSegObj$predict(pen = 100)
 #> [1] 100 200
 ```
@@ -61,6 +66,7 @@ to the `binSeg` object, allowing users to use the `$plot()` method
 without specifying `endPts`.
 
 ``` r
+
 binSegObj$plot(d = 1:2,
                main = "method: binSeg; costFunc: SIGMA; pen: 100")
 ```

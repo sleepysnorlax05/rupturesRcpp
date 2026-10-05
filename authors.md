@@ -13,7 +13,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/edelweiss611428/rupturesRcpp/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/edelweiss611428/rupturesRcpp/blob/docs/site-structure/DESCRIPTION)
 
 Nguyen M, Hocking T, Truong C (2026). *rupturesRcpp: Object-Oriented
 Interface for Offline Change-Point Detection*. R package version 2.0.0,
