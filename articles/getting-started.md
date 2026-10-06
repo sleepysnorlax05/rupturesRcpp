@@ -41,7 +41,10 @@ install.packages("rupturesRcpp",
 
 Building from GitHub needs a C++ toolchain: Rtools on Windows, the Xcode
 command line tools on macOS (`xcode-select --install`), or a C++
-compiler on Linux (for example `r-base-dev` on Debian and Ubuntu).
+compiler on Linux (for example `r-base-dev` on Debian and Ubuntu). macOS
+also needs a Fortran compiler: R 4.5.0 and later use GNU Fortran 14.2
+(`gfortran-14.2-universal.pkg`, see [R for macOS
+tools](https://mac.r-project.org/tools/)).
 
 ``` r
 
