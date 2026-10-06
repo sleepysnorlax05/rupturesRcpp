@@ -11,15 +11,6 @@ mean, its variance, its autocorrelation, or its relationship with other
 variables. Detection is offline: the whole series is available at once,
 and the goal is the set of change-points that best explains it.
 
-The cost functions and search methods follow the Python library
-[ruptures](https://centre-borelli.github.io/ruptures-docs/), whose
-methods are reviewed by [Truong, Oudre and Vayatis
-(2020)](https://doi.org/10.1016/j.sigpro.2019.107299). `rupturesRcpp`
-implements them in C++ with Rcpp and RcppArmadillo, wraps them in R6
-classes, and also accepts cost functions written in R. The package was
-created during Google Summer of Code 2025 for the R Project for
-Statistical Computing.
-
 ## Installation
 
 Choose how to install. This site documents the development version.
@@ -39,12 +30,11 @@ install.packages("rupturesRcpp",
                            "https://cloud.r-project.org"))
 ```
 
-Building from GitHub needs a C++ toolchain: Rtools on Windows, the Xcode
-command line tools on macOS (`xcode-select --install`), or a C++
-compiler on Linux (for example `r-base-dev` on Debian and Ubuntu). macOS
-also needs a Fortran compiler: R 4.5.0 and later use GNU Fortran 14.2
-(`gfortran-14.2-universal.pkg`, see [R for macOS
-tools](https://mac.r-project.org/tools/)).
+Building from GitHub requires a C++ toolchain: Rtools on Windows; the
+Xcode Command Line Tools on macOS (`xcode-select --install`) and a GNU
+Fortran compiler (see the [CRAN macOS
+tools](https://cran.r-project.org/bin/macosx/tools/) page); or a C++
+compiler on Linux (for example, `r-base-dev` on Debian and Ubuntu).
 
 ``` r
 
